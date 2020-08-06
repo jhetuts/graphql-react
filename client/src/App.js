@@ -2,10 +2,12 @@ import React from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 // Components
-import { BookList } from "./components";
+import { BookList, AuthorList } from "./components";
+
+console.log(process.env.NODE_ENV, process.env.REACT_APP_API);
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000/api/graphql",
+  uri: process.env.NODE_ENV === "production" ? "" : process.env.REACT_APP_API,
   cache: new InMemoryCache(),
 });
 
@@ -15,6 +17,7 @@ function App() {
       <div className="App">
         <h1>Online Library</h1>
         <BookList />
+        <AuthorList />
       </div>
     </ApolloProvider>
   );

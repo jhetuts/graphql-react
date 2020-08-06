@@ -8,3 +8,13 @@ export const GET_BOOKS_QUERY = gql`
     }
   }
 `;
+
+export const GET_AUTHORS_QUERY = gql`
+  {
+    authors {
+      name
+      age
+      id
+    }
+  }
+`;
